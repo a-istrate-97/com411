@@ -13,6 +13,12 @@ def function(display_method):
     elif display_method == "mirrored":
         reversed_word = word [::-1]
         print(reversed_word)
+        #   different method:
+        #def display_mirrored(word):
+        #mirrored = ""
+        #for letter in reversed(word):
+        #    mirrored += letter
+        #print(f"{word} | {mirrored}")
     elif display_method == "repeat":
         print("How many times do you want the word to be repeated?")
         repeat = int(input())
