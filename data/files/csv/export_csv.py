@@ -2,7 +2,7 @@ def export(file_path, no):
     if no > 2:
         return print("We don't have that much time!")
     print("Exporting...")
-    with open("output.csv", "a") as file:
+    with open(file_path, "a") as file:
         for bots in range(no):
             print("Please enter the bot id:")
             bot_id = input()
@@ -10,7 +10,8 @@ def export(file_path, no):
             bot_name = input()
             print("Please enter the bot paint:")
             bot_paint = input()
-    file.write("{bot_id},{bot_name},{bot_paint}")
+            data = f"{bot_id},{bot_name},{bot_paint}\n"
+            file.write(data)
     print("Done!")
 
 def run():
