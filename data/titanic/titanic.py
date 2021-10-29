@@ -29,11 +29,21 @@ def load_data(file_path):
     elif results > 1:
         print(f"Found {results} results")
 
+def display_menu():
+    print("""
+Please select one of the following options (1, 2, 3 or 4):
+[1] Display the names of all passengers
+[2] Display the number of passengers that survived
+[3] Display the number of passengers per gender
+[4] Display the number of passengers per age group
+""")
+    return int(input())
+
 
 def run():
     load_data("titanic.csv")
-
-
+    selected_option = display_menu()
+    print(f"You have selected the option: {selected_option}")
 
 if __name__ == "__main__":
     run()
