@@ -19,13 +19,16 @@ def load_data(file_path):
     results = 0
     for index in range(len(records)):
         nest = records[index]
-        if name in nest[3]:
+        if name in nest[3] and len(name) > 3:
            print(f"Found {nest[3]}")
            results = results + 1
     if results == 0:
         print(f"Couldn't find any passengers with variants of this name")
+    elif results == 891:
+        print("Invalid input")
     elif results > 1:
         print(f"Found {results} results")
+
 
 def run():
     load_data("titanic.csv")
