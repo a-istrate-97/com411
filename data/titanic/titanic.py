@@ -13,14 +13,24 @@ def load_data(file_path):
         #headings = next(csv_reader)
         for values in csv_reader:
             records.append(values)
-
-    #test
-    #print(headings)
-
+    print(f"Successfully loaded {len(records)} records.")
+    print(f"Please enter a passenger name:")
+    name = input()
+    results = 0
+    for index in range(len(records)):
+        nest = records[index]
+        if name in nest[3]:
+           print(f"Found {nest[3]}")
+           results = results + 1
+    if results == 0:
+        print(f"Couldn't find any passengers with variants of this name")
+    elif results > 1:
+        print(f"Found {results} results")
 
 def run():
     load_data("titanic.csv")
-    print(f"Successfully loaded {len(records)} records.")
+
+
 
 if __name__ == "__main__":
     run()
