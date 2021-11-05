@@ -14,6 +14,20 @@ def load_data(file_path):
         for values in csv_reader:
             records.append(values)
     print(f"Successfully loaded {len(records)} records.")
+    print(f"Please enter a passenger name:")
+    name = input()
+    results = 0
+    for index in range(len(records)):
+        nest = records[index]
+        if name in nest[3] and len(name) > 3:
+           print(f"Found {nest[3]}")
+           results = results + 1
+    if results == 0:
+        print(f"Couldn't find any passengers with variants of this name")
+    elif results == 891:
+        print("Invalid input")
+    elif results > 1:
+        print(f"Found {results} results")
 
 def display_menu():
     print("""
@@ -25,23 +39,11 @@ Please select one of the following options (1, 2, 3 or 4):
 """)
     return int(input())
 
-def display_passenger_names():
-    print("The names of the passengers are...")
-    for index in range(len(records)):
-        nest = records[index]
-        passenger_name = nest[3]
-        print(passenger_name)
-
-
 
 def run():
     load_data("titanic.csv")
     selected_option = display_menu()
     print(f"You have selected the option: {selected_option}")
-    if selected_option == 1:
-        display_passenger_names()
-    else:
-        print("Error! option not recognised!")
 
 if __name__ == "__main__":
     run()
