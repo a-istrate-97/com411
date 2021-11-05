@@ -17,12 +17,13 @@ def load_data(file_path):
 
 def display_menu():
     print("""
-Please select one of the following options (1, 2, 3 or 4):
+Please select one of the following options (1, 2, 3, 4, 5 or 6):
 [1] Display the names of all passengers
 [2] Display the number of passengers that survived
 [3] Display the number of passengers per gender
 [4] Display the number of passengers per age group
 [5] Display the number of survivors per age group
+[6] Search passenger by name
 """)
     return int(input())
 
@@ -97,6 +98,22 @@ def display_survivors_per_age_group():
                 elderly = elderly + 1
     print(f"children: {s_children}/{children}, adults: {s_adults}/{adults}, elderly: {s_elderly}/{elderly}")
 
+def search_passenger_by_name():
+    print(f"Please enter a passenger name:")
+    name = input()
+    results = 0
+    for index in range(len(records)):
+        nest = records[index]
+        if name in nest[3] and len(name) > 3:
+            print(f"Found {nest[3]}")
+            results = results + 1
+    if results == 0:
+        print(f"Couldn't find any passengers with variants of this name")
+    elif results == 891:
+        print("Invalid input")
+    elif results > 1:
+        print(f"Found {results} results")
+
 def run():
     load_data("titanic.csv")
     selected_option = display_menu()
@@ -111,6 +128,8 @@ def run():
         display_passengers_per_age_group()
     elif selected_option == 5:
         display_survivors_per_age_group()
+    elif selected_option == 6:
+        search_passenger_by_name()
     else:
         print("Error! option not recognised!")
 
