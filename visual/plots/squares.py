@@ -25,5 +25,7 @@ def run():
     small()
     plt.show()
 
+
 if __name__ == "__main__":
     run()
+
