@@ -26,5 +26,6 @@ def run():
     for key, value in dictionary.items():
         print(f"{key}: {value}")
 
+
 if __name__ == "__main__":
     run()
