@@ -6,6 +6,7 @@ fig, ax = plt.subplots(1, 1)
 
 def animate(frame):
     global ax
+    ax.cla()
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 10)
     ax.plot(frame, frame, "ro")
