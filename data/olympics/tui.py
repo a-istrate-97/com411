@@ -13,11 +13,12 @@ def error(msg):
 
 
 def menu():
-    print(
-    f"[years]     List unique years\n"
-    "[tally]      Tally up medals\n"
-    "[ctally]     Tally up medals for each team\n"
-    "[exit]       Exit the program\n")
+    print(f"""Please select one of the following options:
+    {"[years]":<10} List unique years
+    {"[tally]":<10} Tally up medals
+    {"[team]":<10} Tally up medals for each team
+    {"[exit]":<10} Exit the program
+    """)
     selection = input()
     return selection
 
@@ -32,6 +33,7 @@ def display_team_medal_tally(team_tally):
 
 
 def display_years(years):
-    for year in years:
+    sorted_years = sorted(years, reverse=True)
+    for year in sorted_years:
         print(year)
 
